@@ -4,9 +4,16 @@ import { GraphQLProducts, Product } from "@/types";
 import { Flex } from "@chakra-ui/react";
 
 export default function Home({ products }: { products: Product[] }) {
+  const customOrderToProducts = products.sort((a, b) => {
+    const aProductType = Number(a.productType);
+    const bProductType = Number(b.productType);
+
+    return aProductType - bProductType;
+  })
+
   return (
     <Flex direction="column">
-      <Products products={products} />
+      <Products products={customOrderToProducts} />
     </Flex>
   );
 }

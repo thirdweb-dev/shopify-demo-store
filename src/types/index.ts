@@ -8,6 +8,7 @@ export type GraphQLProducts = {
       description: string;
       handle: string;
       tags: string[];
+      productType: string;
       images: {
         edges: {
           node: {

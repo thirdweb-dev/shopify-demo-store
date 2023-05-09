@@ -19,13 +19,9 @@ export const Products: React.FC<ProductsProps> = ({ products }) => {
     );
   }
 
-  const mappedProducts = products?.map((product) => ({
-    ...product,
-  }));
-
   return (
     <SimpleGrid minChildWidth="300px" spacing={20} mb={24}>
-      {mappedProducts?.map((product) => (
+      {products?.map((product) => (
         <ProductCard key={product.id} product={product} />
       ))}
     </SimpleGrid>

@@ -7,6 +7,7 @@ export const PRODUCTS_QUERY = `query products {
           handle
           description
           tags
+          productType
           images(first: 1) {
             edges {
               node {
