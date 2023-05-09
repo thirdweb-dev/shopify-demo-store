@@ -1,0 +1,7 @@
+.tw-connected-wallet__network-icon, .tw-connected-wallet__balance {
+  display: none !important;
+}
+
+div > span + div[style="height: 8px;"] {
+  display: none;
+}
