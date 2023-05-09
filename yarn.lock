@@ -2367,10 +2367,10 @@
     uuid "^9.0.0"
     zod "^3.20.2"
 
-"@thirdweb-dev/chains@0.0.0-dev-c971786-20230509011302":
-  version "0.0.0-dev-c971786-20230509011302"
-  resolved "https://registry.yarnpkg.com/@thirdweb-dev/chains/-/chains-0.0.0-dev-c971786-20230509011302.tgz#c3690993769c9be1bb503efcff47857e186169fa"
-  integrity sha512-0laqfBd15+8fjADOfLw5q7jeFYAforlEAPX6DnlRZnu5WKvQ4RtXu5akwj41he+V1piZI2Xh0LuNp14LpKYtpQ==
+"@thirdweb-dev/chains@0.0.0-dev-fe80224-20230509203046":
+  version "0.0.0-dev-fe80224-20230509203046"
+  resolved "https://registry.yarnpkg.com/@thirdweb-dev/chains/-/chains-0.0.0-dev-fe80224-20230509203046.tgz#793f08337dc248609dbe40cff8cbe753d871b525"
+  integrity sha512-8breghcUJ+l0S3XiohjYaOfbit58cY6juLsQpbMX0QDgZRhnrWigMMxWNBSB6nA1nz9P1p9FIoSaH2derkR46Q==
 
 "@thirdweb-dev/chains@0.1.12", "@thirdweb-dev/chains@^0.1.11":
   version "0.1.12"
@@ -2446,12 +2446,12 @@
     react-qr-code "^2.0.11"
     tiny-invariant "^1.2.0"
 
-"@thirdweb-dev/sdk@0.0.0-dev-c971786-20230509011302":
-  version "0.0.0-dev-c971786-20230509011302"
-  resolved "https://registry.yarnpkg.com/@thirdweb-dev/sdk/-/sdk-0.0.0-dev-c971786-20230509011302.tgz#c8b60773a77d43cc25dddc485aabc2890c5bb616"
-  integrity sha512-evYS7KOffjHuZfo6xKQzCM43W1NA2PpNdFcrUuLrDVuKD2WZT+6oJgP/ZqKCQPRIpqLH4gwCzSD2TsX7KiJDpQ==
+"@thirdweb-dev/sdk@0.0.0-dev-fe80224-20230509203046":
+  version "0.0.0-dev-fe80224-20230509203046"
+  resolved "https://registry.yarnpkg.com/@thirdweb-dev/sdk/-/sdk-0.0.0-dev-fe80224-20230509203046.tgz#14351d2e4d497ac05e64f2db8efbe064b3450755"
+  integrity sha512-qb3As9Dp6yZk9q7FS228UVnDTa5JDQS5RY+4c77T8Khd44iYr5xe6pzNkd40YeIOHZmY+j/dCfsLaLN1Gpw54w==
   dependencies:
-    "@thirdweb-dev/chains" "0.0.0-dev-c971786-20230509011302"
+    "@thirdweb-dev/chains" "0.0.0-dev-fe80224-20230509203046"
     "@thirdweb-dev/contracts-js" "1.3.4"
     "@thirdweb-dev/generated-abis" "0.0.1"
     "@thirdweb-dev/storage" "1.1.2"

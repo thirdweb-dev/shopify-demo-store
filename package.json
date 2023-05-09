@@ -17,7 +17,7 @@
     "@thirdweb-dev/auth": "^3.0.14",
     "@thirdweb-dev/chains": "^0.1.11",
     "@thirdweb-dev/react": "^3.11.7",
-    "@thirdweb-dev/sdk": "0.0.0-dev-c971786-20230509011302",
+    "@thirdweb-dev/sdk": "0.0.0-dev-fe80224-20230509203046",
     "ethers": "^5.7.2",
     "framer-motion": "^10.2.3",
     "next": "13.2.3",
