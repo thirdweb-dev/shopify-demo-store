@@ -45,7 +45,7 @@ export const SimpleTokenGate: ComponentWithChildren<SimpleTokenGateProps> = ({
       return (
         <>
           <Text>
-            {!address ? "Please connect a wallet or sign in with email to get started." : "Please sign in."}
+            {!address ? "Please sign in with email to get started." : "Please sign in."}
           </Text>
           <ConnectWallet btnTitle="Sign in" />
         </>
@@ -54,7 +54,7 @@ export const SimpleTokenGate: ComponentWithChildren<SimpleTokenGateProps> = ({
       if (isLoading) {
         return <Spinner />;
       } else if (!ownsToken) {
-        return <Text>You do not own the required token to gain access.</Text>;
+        return <Text>You do not have VIP Membership to gain access to this product</Text>;
       }
     }
   };

@@ -9,7 +9,6 @@ import theme from "@/theme";
 import { ChakraProvider, Container } from "@chakra-ui/react";
 import {
   ThirdwebAuthConfig,
-  metamaskWallet,
   paperWallet,
   SDKOptions,
   ThirdwebProvider,
@@ -32,7 +31,6 @@ export default function App({ Component, pageProps }: AppProps) {
         paperWalletConfig,
       ]
       : []),
-    metamaskWallet(),
   ];
 
   const authConfig: ThirdwebAuthConfig = {
