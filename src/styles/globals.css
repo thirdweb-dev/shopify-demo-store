@@ -1,7 +1,11 @@
-.tw-connected-wallet__network-icon, .tw-connected-wallet__balance {
+.tw-connected-wallet__network-icon, .tw-connected-wallet__balance, .tw-connected-wallet__address {
   display: none !important;
 }
 
 div > span + div[style="height: 8px;"] {
   display: none;
+}
+
+.tw-connected-wallet > div:nth-child(2), .tw-connected-wallet > div:first-child {
+  display: none !important;
 }

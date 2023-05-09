@@ -10,6 +10,7 @@ import {
   Heading,
   Image,
   Text,
+  Tooltip,
   useNumberInput,
   useToast,
 } from "@chakra-ui/react";
@@ -78,6 +79,9 @@ const Product: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
     ? SimpleTokenGate
     : ({ children }: any) => children;
 
+  const isWristband = product.title === "Members Club Wristband";
+  const isDripHoodie = product.title === "VIP Members Exclusive Hoodie";
+
   return (
     <GateComponent gateContractAddress={NFT_RECEIPTS_ADDRESS}>
       <Container
@@ -104,6 +108,33 @@ const Product: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
               <Text fontSize="lg" color="#646D7A">
                 {product.description}
               </Text>
+
+              {isWristband && (
+                <>
+                <Flex direction="row">
+                  <Text fontSize="md" mt={8}>
+                    Make sure you’re signed into your account before you add to cart to ensure that you receive your {" "}
+                    <Tooltip placement="top" label="What is a digital reward? For every physical wristband purchase you make, you will receive a virtual wristband that is uniquely owned by you. This virtual wristband unlocks access to exclusive merchandise across the store.">
+                      <span style={{
+                        fontWeight: "bold",
+                        cursor: "default"
+                      }}>
+                        digital reward.
+                      </span>
+                    </Tooltip>
+                  </Text>
+                  </Flex>
+                  <Box mt={2}>
+                    Purchase your VIP Members Wristband to unlock access to exclusive merchandise across our store.
+                  </Box>
+                </>
+              )}
+
+              {isDripHoodie && (
+                <Text fontSize="md" mt={8}>
+                  You are able to purchase this exclusive VIP Members Hoodie because you own a virtual VIP Members wristband
+                </Text>
+              )}
 
               <NormalProduct
                 product={product}

@@ -3,7 +3,6 @@ import { ConnectWallet, useAddress, useUser } from "@thirdweb-dev/react";
 
 export const LoyaltyTokens: React.FC = () => {
   const { isLoggedIn } = useUser();
-  const address = useAddress();
 
   const renderContent = () => {
     if (isLoggedIn) {
@@ -15,7 +14,7 @@ export const LoyaltyTokens: React.FC = () => {
     }
     return {
       title: "Earn rewards with every purchase!",
-      description: `${address ? "Sign in" : "Connect a wallet"} to receive digital coupons and rewards with every purchase.`,
+      description: "Sign in with your email address to receive digital rewards that count towards your membership level with every purchase.",
     };
   };
 

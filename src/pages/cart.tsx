@@ -65,7 +65,6 @@ export default function CartPage() {
                   </Flex>
                 );
               })}
-              <LoyaltyTokens />
               <Button
                 as="a"
                 href={cart?.checkoutUrl}
