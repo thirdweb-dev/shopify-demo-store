@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { SDKOptions, SmartContract, ThirdwebSDK } from "@thirdweb-dev/sdk/evm";
+import { prepareGaslessRequest, SDKOptions, SmartContract, ThirdwebSDK } from "@thirdweb-dev/sdk/evm";
 import crypto from "crypto";
 import { shopifyFetchAdminAPI } from "@/lib/utils";
 import { GET_ORDER_BY_ID_QUERY } from "@/queries";
@@ -9,7 +9,7 @@ import {
   NFT_RECEIPTS_ADDRESS,
   RELAYER_URL,
 } from "@/lib/environment-variables";
-import { CallOverrides } from "ethers";
+import https from "https";
 
 export const config = {
   api: {
@@ -182,7 +182,28 @@ export default async function handler(
       console.time("minting")
       // Await all promises to resolve
       await Promise.all(mintPromises)
-        .then((txs) => Promise.all(txs.map(async (tx) => tx.queue())))
+        .then((txs) => Promise.all(txs.map(async (tx) => {
+          const request = await prepareGaslessRequest(tx);
+          const url = new URL(request.url);
+          const options = {
+            hostname: url.hostname,
+            path: url.pathname + url.search,
+            method: request.method,
+          };
+          await new Promise<void>((resolve, reject) => {
+            const req = https.request(options);
+            req.on("error", (err) => {
+              console.log("error", err);
+              reject(err);
+            });
+
+            req.write(request.body);
+            req.end(() => {
+              console.log("Delegated Request");
+              resolve();
+            })
+          });
+        })))
         .catch((err) => {
         console.error("Error in minting process:", err);
       });

@@ -51,7 +51,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         </Tag>
       )}
       <CardBody>
-        <AspectRatio ratio={1} >
+        <AspectRatio ratio={1}>
           <Image objectFit="contain" src={src} alt={alt} borderRadius="lg" />
         </AspectRatio>
         <Flex direction="column" gap={2} mt={4}>
