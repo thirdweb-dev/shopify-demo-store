@@ -30,19 +30,25 @@ SHOPIFY_ADMIN_API_URL=
 SHOPIFY_ADMIN_ACCESS_TOKEN=
 SHOPIFY_WEBHOOK_KEY=
 ```
+
 ### SHOPIFY_STOREFRONT_ACCESS_TOKEN
+
 You need to add the `Headless` app to your store from the shopify app store. Then add it as a sales channel. You can grab the key from the `Private access token` section. It should look like `shpat_...`.
 
 ### SHOPIFY_STOREFRONT_API_URL
+
 The url to your store's store api. It should look like `https://your-store.myshopify.com/api/2021-07/graphql.json`. Make sure to change the version of the api to your desired version.
 
 ### SHOPIFY_ADMIN_API_URL
+
 The url to your store's admin api. It should look like `https://your-store.myshopify.com/admin/api/2021-07/graphql.json`. Make sure to change the version of the api to your desired version.
 
 ### SHOPIFY_ADMIN_ACCESS_TOKEN
+
 You need to create a private app in your store. You can do that by going to `Apps` -> `Apps and sales channels` -> `Develop Apps` -> `Create an app`. Then you need to go to `Configuration` configure the scopes you need, for this template you need read and write to `Orders`, `Products`, `Product Listings`, `Customers`, and `Discounts`. Once that's checked, click save and then Install App. Reveal the Admin API access token and copy it to your `.env.local` file. Make sure to save it somewhere safe, you won't be able to see it again. It should look like `shpat_...`.
 
 ### SHOPIFY_WEBHOOK_KEY
+
 You need to create a webhook in your store. Type webhook in the search bar on top of the page and click on `Webhooks`. Scroll down to create a webhook. For this template we are using on 'Order Creation'. The webhook key should be at the bottom of the page, which will be used to verify the webhook came from Shopify.
 
 ## Setup thirdweb
@@ -92,8 +98,14 @@ yarn generate
 Then, add the generated private key to your `.env.local` file. This will also generate the wallet address associated with that private key, you can use it to mint receipts.
 
 You can use a generated private key for production if:
+
 - You're not using NFT receipts
 - You are using NFT receipts and also using gasless, in that case, you'll need to grab the wallet address generated and add it as `Minter / Creator` on the Permissions tab of the NFT Collection you deployed.
 
 You should be using your private key for production if:
+
 - You're using NFT receipts and not using gasless. It would need to be the same private key you used to deploy the NFT Collection or add that wallet address as `Minter / Creator` on the Permissions tab of the NFT Collection you deployed.
+
+## Gated Content
+
+In order to gate specific products using this template, you will have to add a tag to the product in Shopify. The tag should be `gated`. You can add this tag to any product you want to gate. Once you add the tag, any user that purchases another product while signed in will recieve a digital NFT receipt and will be able to access the gated product.
