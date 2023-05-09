@@ -1,9 +1,9 @@
 import { Products } from "@/components/Products/Products";
 import { getAllProducts } from "@/lib/shopify";
-import { GraphQLProducts } from "@/types";
-import { Flex, Heading } from "@chakra-ui/react";
+import { GraphQLProducts, Product } from "@/types";
+import { Flex } from "@chakra-ui/react";
 
-export default function Home({ products }: { products: GraphQLProducts }) {
+export default function Home({ products }: { products: Product[] }) {
   return (
     <Flex direction="column">
       <Products products={products} />
@@ -23,9 +23,21 @@ export async function getStaticProps() {
       };
     }
 
+    if (!products.body.data.products) {
+      return {
+        props: {
+          products: [],
+        },
+      };
+    }
+
+    const parsedProducts = products.body.data.products.edges.map((product: GraphQLProducts["edges"][number]) => ({
+      ...product.node,
+    }));
+
     return {
       props: {
-        products: products.body.data.products,
+        products: parsedProducts,
       },
       revalidate: 60, // Revalidate every 60 seconds
     };

@@ -46,6 +46,10 @@ export async function shopifyFetch(params: ShopifyFetchParams) {
   const endpoint = process.env.SHOPIFY_STOREFRONT_API_URL as string;
   const key = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN as string;
 
+  if (!endpoint || !key) {
+    throw new Error("Missing Shopify Storefront API keys");
+  }
+
   return fetchFromShopify(params, endpoint, {
     "Shopify-Storefront-Private-Token": key,
   });
@@ -54,6 +58,10 @@ export async function shopifyFetch(params: ShopifyFetchParams) {
 export async function shopifyFetchAdminAPI(params: ShopifyFetchParams) {
   const endpoint = process.env.SHOPIFY_ADMIN_API_URL as string;
   const key = process.env.SHOPIFY_ADMIN_ACCESS_TOKEN as string;
+
+  if (!endpoint || !key) {
+    throw new Error("Missing Admin Shopify API config");
+  }
 
   return fetchFromShopify(params, endpoint, {
     "X-Shopify-Access-Token": key,
