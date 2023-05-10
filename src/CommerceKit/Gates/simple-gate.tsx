@@ -1,3 +1,4 @@
+import { Signin } from "@/components/Signin";
 import { ComponentWithChildren } from "@/utils";
 import {
   Box,
@@ -9,7 +10,6 @@ import {
   Text,
 } from "@chakra-ui/react";
 import {
-  ConnectWallet,
   useAddress,
   useContract,
   useOwnedNFTs,
@@ -47,7 +47,7 @@ export const SimpleTokenGate: ComponentWithChildren<SimpleTokenGateProps> = ({
           <Text>
             {!address ? "Please sign in with email to get started." : "Please sign in."}
           </Text>
-          <ConnectWallet btnTitle="Sign in" />
+          <Signin />
         </>
       );
     } else {

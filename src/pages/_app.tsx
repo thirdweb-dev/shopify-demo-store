@@ -16,7 +16,6 @@ import {
 } from "@thirdweb-dev/react";
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import "@/styles/globals.css"
 
 const paperWalletConfig = paperWallet({
   clientId: PAPER_CLIENT_ID,

@@ -8,9 +8,9 @@ import {
   Image,
   Text,
 } from "@chakra-ui/react";
-import { ConnectWallet } from "@thirdweb-dev/react";
 import Link from "next/link";
 import { FiShoppingCart } from "react-icons/fi";
+import { Signin } from "./Signin";
 
 export const Navbar: React.FC = () => {
   const { data: cart, isLoading } = useCart();
@@ -67,7 +67,7 @@ export const Navbar: React.FC = () => {
               </Badge>
             </Box>
           )}
-          <ConnectWallet btnTitle="Sign in" />
+          <Signin />
         </Flex>
       </Flex>
     </Container>

@@ -1,6 +1,7 @@
 import { Box, Button, Flex, Heading, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Text, useDisclosure } from "@chakra-ui/react";
-import { ConnectWallet, useUser } from "@thirdweb-dev/react";
+import { useUser } from "@thirdweb-dev/react";
 import { FC } from "react";
+import { Signin } from "./Signin";
 
 interface UpsellModalProps {
   isOpen: boolean;
@@ -23,7 +24,7 @@ export const UpsellModal: FC<UpsellModalProps> = ({ isOpen, onSubmit, onClose })
             You can earn additional rewards by signing in with your email address. Are you sure you want to continue without signing in?
           </Text>
             <Flex w="full" mx="auto" alignItems="center" justifyContent="center">
-              <ConnectWallet btnTitle="Sign in" />
+              <Signin />
             </Flex>
             </>
           ) : (

@@ -1,5 +1,6 @@
+import { Signin } from "@/components/Signin";
 import { Box, Flex, Heading, Text } from "@chakra-ui/react";
-import { ConnectWallet, useAddress, useUser } from "@thirdweb-dev/react";
+import { useUser } from "@thirdweb-dev/react";
 
 export const LoyaltyTokens: React.FC = () => {
   const { isLoggedIn } = useUser();
@@ -33,7 +34,7 @@ export const LoyaltyTokens: React.FC = () => {
       <Text>{description}</Text>
       {!isLoggedIn && (
         <Box mt={4}>
-          <ConnectWallet btnTitle="Sign in" />
+          <Signin />
         </Box>
       )}
     </Flex>
