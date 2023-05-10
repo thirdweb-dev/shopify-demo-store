@@ -1,5 +1,6 @@
 import { SimpleTokenGate } from "@/CommerceKit/Gates/simple-gate";
 import { NormalProduct } from "@/components/Products/NormalProduct";
+import { UpsellModal } from "@/components/UpsellModal";
 import { NFT_RECEIPTS_ADDRESS } from "@/lib/environment-variables";
 import { getAllProducts, getProductByHandle } from "@/lib/shopify";
 import { GraphQLProducts, Product } from "@/types";
@@ -11,10 +12,10 @@ import {
   Image,
   Text,
   Tooltip,
+  useDisclosure,
   useNumberInput,
   useToast,
 } from "@chakra-ui/react";
-import { useUser } from "@thirdweb-dev/react";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import Link from "next/link";
 import { useState } from "react";
@@ -43,8 +44,6 @@ const Product: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
   );
 
   const isGated = product?.tags?.includes("gated");
-
-  const user = useUser();
 
   const handleAddToCart = async () => {
     try {
@@ -81,6 +80,8 @@ const Product: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
 
   const isWristband = product.title === "Members Club Wristband";
   const isDripHoodie = product.title === "VIP Members Exclusive Hoodie";
+
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <GateComponent gateContractAddress={NFT_RECEIPTS_ADDRESS}>
@@ -141,6 +142,7 @@ const Product: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
                 selectedSize={selectedSize}
                 setSelectedSize={setSelectedSize}
                 incrementProps={incrementProps}
+                openModal={onOpen}
                 decrementProps={decrementProps}
                 inputProps={inputProps}
                 handleAddToCart={handleAddToCart}
@@ -149,6 +151,7 @@ const Product: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
           </Flex>
         </Box>
       </Container>
+      <UpsellModal isOpen={isOpen} onSubmit={handleAddToCart} onClose={onClose} />
     </GateComponent>
   );
 };

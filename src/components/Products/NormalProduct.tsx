@@ -1,6 +1,7 @@
 import { ProductProps } from "@/pages/products/[handle]";
-import { Button, ButtonGroup, ButtonProps, Flex, Input, InputProps, NumberInputProps } from "@chakra-ui/react";
+import { Button, ButtonGroup, ButtonProps, Flex, Input, InputProps } from "@chakra-ui/react";
 import { Dispatch, SetStateAction } from "react";
+import { useUser } from "@thirdweb-dev/react";
 
 interface NormalProductProps {
   product: ProductProps["product"];
@@ -14,6 +15,7 @@ interface NormalProductProps {
       title: string;
     }>
   >;
+  openModal: () => void;
   handleAddToCart: () => Promise<void>;
   incrementProps: ButtonProps;
   decrementProps: ButtonProps;
@@ -25,11 +27,13 @@ export const NormalProduct: React.FC<NormalProductProps> = ({
   selectedSize,
   setSelectedSize,
   handleAddToCart,
+  openModal,
   incrementProps,
   decrementProps,
   inputProps,
 }) => {
   const variants = product.variants.edges;
+  const { user } = useUser();
 
   return (
     <Flex direction="column" gap={4} mt={8}>
@@ -55,7 +59,7 @@ export const NormalProduct: React.FC<NormalProductProps> = ({
           +
         </Button>
       </Flex>
-      <Button colorScheme="purple" onClick={handleAddToCart}>
+      <Button colorScheme="purple" onClick={!user?.address ? openModal : handleAddToCart}>
         Add to cart
       </Button>
     </Flex>
