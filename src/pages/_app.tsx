@@ -54,7 +54,7 @@ export default function App({ Component, pageProps }: AppProps) {
         activeChain={APP_NETWORK || "mumbai"}
       >
         <Head>
-          <title>Your Store</title>
+          <title>Commerce Reimagined</title>
         </Head>
         <Navbar />
         <Container maxW="container.page">

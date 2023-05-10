@@ -1,6 +1,6 @@
 import { SimpleTokenGate } from "@/CommerceKit/Gates/simple-gate";
 import { NormalProduct } from "@/components/Products/NormalProduct";
-import { UpsellModal } from "@/components/UpsellModal";
+import { UpsellModal } from "@/CommerceKit/Upsells/UpsellModal";
 import { NFT_RECEIPTS_ADDRESS } from "@/lib/environment-variables";
 import { getAllProducts, getProductByHandle } from "@/lib/shopify";
 import { GraphQLProducts, Product } from "@/types";

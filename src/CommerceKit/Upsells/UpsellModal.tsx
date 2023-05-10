@@ -1,7 +1,7 @@
 import { Box, Button, Flex, Heading, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Text, useDisclosure } from "@chakra-ui/react";
 import { useUser } from "@thirdweb-dev/react";
 import { FC } from "react";
-import { Signin } from "./Signin";
+import { Signin } from "../../components/Signin";
 
 interface UpsellModalProps {
   isOpen: boolean;
