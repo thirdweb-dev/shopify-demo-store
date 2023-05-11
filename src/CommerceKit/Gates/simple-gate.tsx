@@ -45,7 +45,7 @@ export const SimpleTokenGate: ComponentWithChildren<SimpleTokenGateProps> = ({
     if (!isLoggedIn) {
       return (
         <>
-          <Text fontWeight="700" color="#646D7A" fontSize="16px">
+          <Text color="#646D7A" fontSize="16px">
             {!address ? "Please sign in with email to get started." : "Please sign in."}
           </Text>
           <Signin />
