@@ -41,7 +41,7 @@ export const Signin = ({ ...rest }) => {
     } catch (e) {
       console.error(e);
     }
-  }, [address, connect]);
+  }, [address, connect, disconnect, logout]);
 
   return (
     <Button
