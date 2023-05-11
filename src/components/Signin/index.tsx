@@ -13,8 +13,8 @@ export const Signin = ({ ...rest }) => {
   const { isLoading, isLoggedIn } = useUser();
 
   // If you want to handle logout, uncomment these lines:
-  // const { logout } = useLogout();
-  // const disconnect = useDisconnect();
+  const { logout } = useLogout();
+  const disconnect = useDisconnect();
 
   useEffect(() => {
     if (address && !isLoggedIn && !isLoading && !loginAttempted.current) {
@@ -30,8 +30,8 @@ export const Signin = ({ ...rest }) => {
   const handleLoginOrLogout = useCallback(async () => {
     if (address) {
       // If you want to handle logout, uncomment these lines:
-      // await disconnect();
-      // await logout();
+      await disconnect();
+      await logout();
       return;
     }
     try {
