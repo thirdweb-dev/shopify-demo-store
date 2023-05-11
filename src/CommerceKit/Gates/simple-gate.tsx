@@ -5,6 +5,7 @@ import {
   Card,
   Flex,
   Heading,
+  Image,
   SimpleGrid,
   Spinner,
   Text,
@@ -44,7 +45,7 @@ export const SimpleTokenGate: ComponentWithChildren<SimpleTokenGateProps> = ({
     if (!isLoggedIn) {
       return (
         <>
-          <Text fontWeight="700">
+          <Text fontWeight="700" color="#646D7A" fontSize="16px">
             {!address ? "Please sign in with email to get started." : "Please sign in."}
           </Text>
           <Signin />
@@ -76,9 +77,10 @@ export const SimpleTokenGate: ComponentWithChildren<SimpleTokenGateProps> = ({
         placeItems="center"
       >
         <Flex direction="column" gap={3}>
-          <Card bg="rgba(0,0,0,1)" p={8} textAlign="center">
+          <Card bg="#131417" p={8} textAlign="center" rounded="xl">
             <Flex direction="column" gap={4}>
-              <Heading fontSize="32px">VIP Members Exclusive</Heading>
+              <Image src="/crown.svg" h="14" alt="crown" />
+              <Heading fontSize="24px">VIP Members Exclusive</Heading>
               <Flex direction="column" gap={8}>{renderContent()}</Flex>
             </Flex>
           </Card>
