@@ -77,7 +77,7 @@ export const SimpleTokenGate: ComponentWithChildren<SimpleTokenGateProps> = ({
         placeItems="center"
       >
         <Flex direction="column" gap={3}>
-          <Card bg="#131417" p={8} textAlign="center" rounded="xl">
+          <Card bg="#131417" px={24} py={8} textAlign="center" rounded="xl">
             <Flex direction="column" gap={4}>
               <Image src="/crown.svg" h="14" alt="crown" />
               <Heading fontSize="24px">VIP Members Exclusive</Heading>
