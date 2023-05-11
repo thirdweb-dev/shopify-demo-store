@@ -113,9 +113,9 @@ const Product: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
               {isWristband && (
                 <>
                 <Flex direction="row">
-                  <Text fontSize="md" mt={8}>
+                  <Text fontSize="md" mt={8} rounded="xl">
                     Make sure you’re signed into your account before you add to cart to ensure that you receive your {" "}
-                    <Tooltip placement="top" label="What is a digital reward? For every physical wristband purchase you make, you will receive a virtual wristband that is uniquely owned by you. This virtual wristband unlocks access to exclusive merchandise across the store.">
+                    <Tooltip rounded="24px" p={6} color="#ECECECB2" bg="#17181C" placement="top" label="What is a digital reward? For every physical wristband purchase you make, you will receive a virtual wristband that is uniquely owned by you. This virtual wristband unlocks access to exclusive merchandise across the store.">
                       <span style={{
                         fontWeight: "bold",
                         cursor: "default"

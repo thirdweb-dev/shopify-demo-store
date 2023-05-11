@@ -5,7 +5,6 @@ import {
   CardBody,
   Flex,
   Heading,
-  Icon,
   Image,
   LinkBox,
   LinkOverlay,
@@ -13,7 +12,6 @@ import {
   Text,
 } from "@chakra-ui/react";
 import Link from "next/link";
-import { FiLock } from "react-icons/fi";
 
 interface ProductCardProps {
   product: Product;
@@ -41,13 +39,17 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     >
       {isGated && (
         <Tag
-          variant="subtle"
-          colorScheme="purple"
           position="absolute"
+          color="white"
           top={0}
-          right={0}
+          right={61}
+          zIndex={1}
+          p={2}
+          bg="#1F1F1F"
+          border="1px solid #525252"
+          fontWeight={600}
         >
-          <Icon as={FiLock} mr={1.5} /> Members Exclusive
+          <Image mr={1} src="/lock.svg" alt="lock" h="4" /> Members Exclusive
         </Tag>
       )}
       <CardBody>

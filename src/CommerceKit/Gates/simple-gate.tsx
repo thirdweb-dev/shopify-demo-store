@@ -44,7 +44,7 @@ export const SimpleTokenGate: ComponentWithChildren<SimpleTokenGateProps> = ({
     if (!isLoggedIn) {
       return (
         <>
-          <Text>
+          <Text fontWeight="700">
             {!address ? "Please sign in with email to get started." : "Please sign in."}
           </Text>
           <Signin />
@@ -52,7 +52,7 @@ export const SimpleTokenGate: ComponentWithChildren<SimpleTokenGateProps> = ({
       );
     } else {
       if (isLoading) {
-        return <Spinner />;
+        return <Spinner alignSelf="center" textAlign="center" />;
       } else if (!ownsToken) {
         return <Text>You do not have VIP Membership to gain access to this product</Text>;
       }
@@ -76,9 +76,11 @@ export const SimpleTokenGate: ComponentWithChildren<SimpleTokenGateProps> = ({
         placeItems="center"
       >
         <Flex direction="column" gap={3}>
-          <Heading>VIP Members Exclusive</Heading>
-          <Card bg="rgba(0,0,0,.8)" p={4}>
-            <Flex direction="column" gap={3}>{renderContent()}</Flex>
+          <Card bg="rgba(0,0,0,1)" p={8} textAlign="center">
+            <Flex direction="column" gap={4}>
+              <Heading fontSize="32px">VIP Members Exclusive</Heading>
+              <Flex direction="column" gap={8}>{renderContent()}</Flex>
+            </Flex>
           </Card>
         </Flex>
       </SimpleGrid>
