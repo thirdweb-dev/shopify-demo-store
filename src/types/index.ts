@@ -49,7 +49,10 @@ export type GraphQLCart = {
       node: {
         id: string;
         quantity: number;
-        attributes: [];
+        attributes: {
+          key: string;
+          value: string;
+        }[];
         merchandise: {
           id: string;
           title: string;
