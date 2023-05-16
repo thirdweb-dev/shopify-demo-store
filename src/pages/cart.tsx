@@ -28,6 +28,13 @@ export default function CartPage() {
 
   const { edges: cartItems } = cart?.lines || {};
 
+  const isEligible = cartItems?.some(({ node }) => {
+    if (!node?.attributes) return false;
+    const attributeExists = node.attributes.find((attr) => attr.key === "wallet");
+    const value = attributeExists?.value;
+    return attributeExists && value
+  })
+
   return (
     <Flex justifyContent="center" my="auto">
       <Card w="container.sm" bg="transparent" shadow="none">
@@ -65,6 +72,11 @@ export default function CartPage() {
                   </Flex>
                 );
               })}
+              {isEligible && (
+                <Box mt={4}>
+                  <Text>Digital rewards may take up to <strong>5 minutes</strong> to be delivered after your purchase.</Text>
+                </Box>
+              )}
               <Button
                 as="a"
                 href={cart?.checkoutUrl}
